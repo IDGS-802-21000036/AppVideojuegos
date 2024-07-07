@@ -1,0 +1,7 @@
+footer {
+    border-top: 1px solid #343a40;
+}
+
+a.text-warning:hover {
+    color: #ffc107;
+}

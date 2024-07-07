@@ -1,0 +1,18 @@
+<div class="container mt-4">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="d-flex justify-content-center mb-3">
+          <div class="d-flex overflow-auto" style="white-space: nowrap;">
+            <button class="btn btn-outline-primary me-2" (click)="filtrarPorCategoria(0)">
+              Todos
+            </button>
+            <button *ngFor="let categoria of listaCategoria" 
+                    class="btn btn-outline-primary me-2" 
+                    (click)="filtrarPorCategoria(categoria.id)">
+              {{ categoria.nombre }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

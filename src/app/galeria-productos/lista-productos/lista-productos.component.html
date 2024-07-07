@@ -1,0 +1,46 @@
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <app-busqueda-productos
+                (busqueda)="onSearch($event)"></app-busqueda-productos>
+            <app-categorias
+                (categoriaSeleccionada)="filtrarPorCategoria($event)"></app-categorias>
+            <div >
+                <div class="row" *ngIf="listaVideojuegosFiltrados.length === 0">
+                    <h2 class="text-center">No se encontraron resultados</h2>
+                </div>
+                <div class="row" *ngIf="listaVideojuegosFiltrados.length > 0">
+
+                    <div class="col-md-4"
+                        *ngFor="let videojuego of listaVideojuegosFiltrados">
+                        <div class="card mb-4 shadow-sm tarjeta-videojuego">
+                            <img src="{{ videojuego.imagen }}"
+                                class="card-img-top imagen-videojuego"
+                                alt="{{ videojuego.nombre }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ videojuego.nombre
+                                    }}</h5>
+                                <p class="card-text">{{ videojuego.descripcion ?
+                                    videojuego.descripcion :
+                                    'Descripción no disponible' }}</p>
+                                <div
+                                    class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button"
+                                            class="btn btn-sm btn-outline-secondary">Ver
+                                            detalles</button>
+                                        <button type="button"
+                                            class="btn btn-sm btn-outline-secondary">Añadir
+                                            al carrito</button>
+                                    </div>
+                                    <small class="text-muted">{{
+                                        videojuego.precio | currency }}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
